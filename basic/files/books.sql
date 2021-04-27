@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS book(
+    id BIGSERIAL PRIMARY KEY UNIQUE,
+    title VARCHAR(100),
+    isbn VARCHAR(100),
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ
+);
