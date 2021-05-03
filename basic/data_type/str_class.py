@@ -17,3 +17,5 @@ class Metadata(BaseModel):
     last_record_timestamp: int
     last_record_id: str
     created_at: Optional[datetime]
+
+    
