@@ -68,3 +68,25 @@ print(copyTest)
 import files.tests_import as ti
 
 print(ti.public_func())
+
+def testing_nih():
+    print("func name {}".format(testing_nih.__name__))
+
+testing_nih()
+
+LOG_LEVEL_INFO = "INFO"
+LOG_LEVEL_DEBUG = "DEBUG"
+LOG_LEVEL_ERROR = "ERROR"
+LOG_LEVEL_WARNING = "WARNING    "
+LOG_LEVEL_CRITICAL = "CRITICAL"
+
+print(LOG_LEVEL_INFO)
+
+class TestArr:
+    ta_arr: []
+
+ta = TestArr()
+ta.ta_arr.append('testing')
+ta.ta_arr.append('testing1')
+# ta.str_arr.append("test")
+print(ta)
