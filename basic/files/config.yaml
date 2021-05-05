@@ -1,0 +1,56 @@
+APP_BASE_NAMESPACE: "pintu.co.id/indodax_evaluator/periodic"
+
+APP_TZ: Asia/Jakarta
+
+SLACK_WEBHOOK: ""
+
+DEFAULT_TIMEGROUP_INTERVAL: 10min
+
+DEFAULT_WINDOW_OFFSET: 3
+
+ACCOUNTS:
+    - exchange@pintu.co.id
+
+ASSET_DECIMALS:
+    'idrt': 2
+    'idrtb': 8
+    'btc': 8
+    'eth': 18
+    'usdt': 6
+    'bnb': 8
+    'link': 18
+    'snx': 18
+    'comp': 18
+    'yfi': 18
+    'uni': 18
+    'mkr': 18
+
+PAIRS:
+    - btc_idr
+    - eth_idr
+    - usdt_idr
+    - snx_idr
+    - comp_idr
+
+INTERNAL_DB_CONFIG:
+    host: ""
+    port: 5432
+    dbname: ""
+    user: ""
+    password: ""
+
+DATA_AGENT_DB_CONFIG:
+    host: ""
+    port: 5432
+    dbname: ""
+    user: ""
+    password: ""
+
+EVALUATOR_DB_CONFIG:
+    host: ""
+    port: 5432
+    dbname: ""
+    user: ""
+    password: ""
+
+ENVIRONMENT: dev

@@ -85,8 +85,22 @@ print(LOG_LEVEL_INFO)
 class TestArr:
     ta_arr: []
 
-ta = TestArr()
-ta.ta_arr.append('testing')
-ta.ta_arr.append('testing1')
+# ta = TestArr()
+# ta.ta_arr.append('testing')
+# ta.ta_arr.append('testing1')
 # ta.str_arr.append("test")
-print(ta)
+# print(ta)
+
+
+def halo_raise() -> (str, BaseException):
+    try:
+        return 'Halo', None
+    except Exception as e:
+        return None, e
+    # return None, BaseException("testing raise for error " + halo_raise.__name__) 
+
+test, err = halo_raise()
+if err != None:
+    print(err)
+
+print(test)
