@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
+from collections import namedtuple
 import psycopg2
 import os
 class EntityTest(BaseModel):
@@ -104,3 +105,89 @@ if err != None:
     print(err)
 
 print(test)
+
+import model
+
+
+# testBook = model.Book()
+# testBook.id = 9
+print(model.Book)
+print(model.Book1)
+
+print(model.Book.__name__)
+
+def get_tuple(tup: namedtuple) -> (namedtuple, BaseException):
+    if tup != None:
+        return tup, None
+
+    return None, Exception("Tuple none")
+
+def check_book_tuple(tup: namedtuple) -> bool:
+    return tup == model.Book
+
+mod, err = get_tuple(None)
+if err != None:
+    print(err)
+
+if mod != None:
+    print(mod)
+
+test = [namedtuple]
+
+UserTransaction = namedtuple('user_transactions', [
+    'user_tx_id',
+	'user_id',
+	'paired_wallet',
+	'tx_amount',
+	'tx_direction',
+	'fee_amount',
+	'fee_label',
+	'currency',
+	'paired_currency',
+	'status',
+	'status_info',
+	'tx_scope',
+	'main_tx_id',
+	'optional_message',
+	'created_at',
+	'updated_at',
+	'exchange_rate',
+	'paired_amount',
+	'pairing_rate',
+	'exa_tx_amount',
+	'exa_fee_amount',
+	'exa_paired_amount',
+])
+
+TradingOrders = namedtuple('trading_orders', [
+    'order_id',
+	'user_tx_id',
+	'exchange_order_id',
+	'exchange_id',
+	'from_amount',
+	'from_currency',
+	'expected_amount',
+	'to_currency',
+	'actual_fee',
+	'actual_from_amount',
+	'actual_to_amount',
+	'expected_fee',
+	'fee_currency',
+	'order_status',
+	'created_at',
+	'updated_at',
+	'exa_from_amount',
+	'exa_expected_fee',
+	'exa_expected_amount',
+])
+
+
+
+print(test)
+print(check_book_tuple(model.Book1))
+
+print(UserTransaction._fields)
+column = str(UserTransaction._fields).replace('\', ')
+testQuery = f"SELECT {str(UserTransaction._fields).replace('\', ')} FROM {UserTransaction.__name__}"
+
+print(testQuery)
