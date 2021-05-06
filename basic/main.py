@@ -181,13 +181,11 @@ TradingOrders = namedtuple('trading_orders', [
 	'exa_expected_amount',
 ])
 
-
-
 print(test)
 print(check_book_tuple(model.Book1))
 
 print(UserTransaction._fields)
-column = str(UserTransaction._fields).replace('\', ')
-testQuery = f"SELECT {str(UserTransaction._fields).replace('\', ')} FROM {UserTransaction.__name__}"
+# column = str(UserTransaction._fields).replace('\', ')
+# testQuery = f"SELECT {str(UserTransaction._fields).replace('\', ')} FROM {UserTransaction.__name__}"
 
-print(testQuery)
+# print(testQuery)
