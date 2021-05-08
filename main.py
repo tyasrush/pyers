@@ -32,3 +32,8 @@ def test_switch(test_param: str) -> str:
     return switch_cases.get(test_param)
 
 print(test_switch("test3"))
+
+def testing_number():
+    return 2**5
+
+print(f'testing number with double asterisk {testing_number()}')
