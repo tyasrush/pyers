@@ -13,20 +13,21 @@ def __init():
 
 def get_pool():
     __init()
-    pgpool = psycopg2.pool.ThreadedConnectionPool(1, MAX_CONN, config.get('host'), config.get('port'), config.get('user'), config.get('password'))
+    pgpool = pool.ThreadedConnectionPool(1, MAX_CONN, **config)
     if pgpool:
-        logging.info('postgres pool connection success')
+        print('PostgreSQL connection pool success')
+        # logging.info('postgres pool connection success')
 
     return pgpool
 
-def query(pgpool, query: str, params):
+def query(pgpool, query: str, params = None):
     try:
         conn = pgpool.getconn()
         cur = conn.cursor()
         cur.execute(query, params)
         results = cur.fetchall()
         cur.close()
-        pgpool.putconn(pgpool)
+        pgpool.putconn(conn)
         return results, None
     except Exception as e:
         logging.error('Error on query', { 'where': traceback.format_exc(), 'error': e })
@@ -45,3 +46,6 @@ def query_commit(pgpool, query: str, params = None):
     except Exception as e:
         logging.error('Error on query commit', { 'where': traceback.format_exc(), 'error': e })
         return e
+
+def release_all_conn(pool):
+    pool.closeall()
