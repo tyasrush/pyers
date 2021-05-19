@@ -37,3 +37,26 @@ def testing_number():
     return 2**5
 
 print(f'testing number with double asterisk {testing_number()}')
+
+class TestingErrorCustom(Exception):
+    def __init__(self, message, code):
+        super(TestingErrorCustom, self).__init__(message, code)
+        self.msg = message
+        self.code = code
+
+class NotFound(TestingErrorCustom):
+    def __init__(self) -> None:
+        message = 'testing aja'
+        code = 400
+        super().__init__(message, code)
+
+def test_error():
+    try:
+        raise NotFound()
+    except Exception as err:
+        if err.code != None and err.code == NotFound().code:
+            print(err)
+
+        raise err
+
+test_error()
