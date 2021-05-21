@@ -59,4 +59,16 @@ def test_error():
 
         raise err
 
-test_error()
+# test_error()
+
+test_num = 9
+if test_num != 0:
+    print('number valid')
+
+from time import time
+from datetime import datetime
+
+num_e = int(time() * 1e3)
+print(str(num_e))
+to_date = datetime.fromtimestamp(int(time()))
+print(to_date)
