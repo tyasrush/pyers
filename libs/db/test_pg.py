@@ -7,11 +7,10 @@ p = None
 
 @pytest.fixture()
 def pools():
-    if p == None:
-        pg.DB_NAME = 'testingdong'
-        p = pg.get_pool()
-        if p:
-            print("Connection pool created successfully")
+    pg.DB_NAME = 'testingdong'
+    p = pg.get_pool()
+    if p:
+        print("Connection pool created successfully")
 
     yield p
 
@@ -29,6 +28,8 @@ def test_create_table(pools):
     if err:
         print(err)
         pytest.fail
+    
+    pg.release_all_conn(pools)
 
 def test_release_conn(pools):
     pg.release_all_conn(pools)
