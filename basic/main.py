@@ -189,3 +189,20 @@ print(UserTransaction._fields)
 # testQuery = f"SELECT {str(UserTransaction._fields).replace('\', ')} FROM {UserTransaction.__name__}"
 
 # print(testQuery)
+
+import pytest
+
+def get_query_str():
+	return 'SELECT 1+1 AS results'
+
+@pytest.mark.parametrize('name, query, expected', [
+	('test func 0', get_query_str(), True),
+	('test func 1', get_query_str(), True),
+	('test func 2', get_query_str(), True)
+])
+def test_func(name, query, expected):
+	print(name)
+	print('test - ' + query)
+	print(expected)
+	
+
