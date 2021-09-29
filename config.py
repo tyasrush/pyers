@@ -21,8 +21,9 @@ joinStr = '&'.join(item for item in testinStrArray)
 print(joinStr)
 
 async def test_asyncio():
-    await asyncio.sleep(10.0)
-    print("testing asyncio running")
+    while True:
+        print('testing sleep 3 detik')
+        await asyncio.sleep(3)
 
 asyncio.ensure_future(test_asyncio())
 loop = asyncio.new_event_loop()
