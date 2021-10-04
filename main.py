@@ -72,3 +72,11 @@ num_e = int(time() * 1e3)
 print(str(num_e))
 to_date = datetime.fromtimestamp(int(time()))
 print(to_date)
+
+import time
+now: float = time.time()
+print(f"now - {now}")
+current_tick: int = int(now // 60.0)
+print(f"current tick - {current_tick}")
+delay_til_next_tick: float = (current_tick + 1) * 60.0 - now
+print(f"delay tick - {delay_til_next_tick}")

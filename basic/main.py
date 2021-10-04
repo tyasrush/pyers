@@ -1,208 +1,218 @@
-from pydantic import BaseModel
-from datetime import datetime
-from collections import namedtuple
-import psycopg2
-import os
-class EntityTest(BaseModel):
-    name: str
+# from pydantic import BaseModel
+# from datetime import datetime
+# from collections import namedtuple
+# import psycopg2
+# import os
+# class EntityTest(BaseModel):
+#     name: str
 
-test = EntityTest(name="test1")
-test1 = EntityTest(name="test1")
-print(test.__class__.__name__)
+# test = EntityTest(name="test1")
+# test1 = EntityTest(name="test1")
+# print(test.__class__.__name__)
 
-print("testing name {}".format(__name__))
+# print("testing name {}".format(__name__))
 
-print(test == test1)
+# print(test == test1)
 
-import data_type.str_class as strc
+# import data_type.str_class as strc
 
-strc.print_str()
+# strc.print_str()
 
-from data_type.str_class import Metadata
+# from data_type.str_class import Metadata
 
-halo = Metadata(_id='74c0a004-1ab2-53f0-8509-362d919ba2e2', account_email='jhonDoe@mail.com', table_name='GetInfo', symbol='NA', last_sync_timestamp=1578638764000, last_record_timestamp=1578638962, last_record_id='NA')
-# print(halo.__fields__)
-# print(halo.created_at)
+# halo = Metadata(_id='74c0a004-1ab2-53f0-8509-362d919ba2e2', account_email='jhonDoe@mail.com', table_name='GetInfo', symbol='NA', last_sync_timestamp=1578638764000, last_record_timestamp=1578638962, last_record_id='NA')
+# # print(halo.__fields__)
+# # print(halo.created_at)
 
-testingArry = [1,2,3]
-copyTest = []
+# testingArry = [1,2,3]
+# copyTest = []
 
-for item in testingArry:
-    copyTest.append(item)
+# for item in testingArry:
+#     copyTest.append(item)
 
-print(copyTest)
+# print(copyTest)
 
-# testDbParam = dict(host='localhost', port=5432, user='postgres', password='postgres', dbname='indodax_agent')
-# print(**testDbParam)
-# conn = psycopg2.connect(dsn="host='localhost' port=5432 user='postgres' password='postgres' dbname='indodax_agent'")
+# # testDbParam = dict(host='localhost', port=5432, user='postgres', password='postgres', dbname='indodax_agent')
+# # print(**testDbParam)
+# # conn = psycopg2.connect(dsn="host='localhost' port=5432 user='postgres' password='postgres' dbname='indodax_agent'")
 
-# cur = conn.cursor()
+# # cur = conn.cursor()
 
-# cur.execute('SELECT _id, account_email, table_name, symbol, last_sync_timestamp, last_record_timestamp, last_record_id, _created_at, _updated_at FROM metadata LIMIT 1')
-# res = list(cur.fetchone())
+# # cur.execute('SELECT _id, account_email, table_name, symbol, last_sync_timestamp, last_record_timestamp, last_record_id, _created_at, _updated_at FROM metadata LIMIT 1')
+# # res = list(cur.fetchone())
 
-# print(res[7])
-# testResult = Metadata(_id=res[0], account_email=res[1], table_name=res[2], symbol=res[3], last_sync_timestamp=res[4], last_record_timestamp=res[5], last_record_id=res[6], created_at=res[7], updated_at=res[8])
-# print('created at - {}'.format(testResult.created_at))
-# testMd = Metadata(_id='74c0a004-1ab2-53f0-8509-362d919ba2e2', account_email='jhonDoe@mail.com', table_name='GetInfo', symbol='NA', last_sync_timestamp=1578638764000, last_record_timestamp=1578638962, last_record_id='NA')
+# # print(res[7])
+# # testResult = Metadata(_id=res[0], account_email=res[1], table_name=res[2], symbol=res[3], last_sync_timestamp=res[4], last_record_timestamp=res[5], last_record_id=res[6], created_at=res[7], updated_at=res[8])
+# # print('created at - {}'.format(testResult.created_at))
+# # testMd = Metadata(_id='74c0a004-1ab2-53f0-8509-362d919ba2e2', account_email='jhonDoe@mail.com', table_name='GetInfo', symbol='NA', last_sync_timestamp=1578638764000, last_record_timestamp=1578638962, last_record_id='NA')
 
-# testMd1 = testMd
+# # testMd1 = testMd
 
-# datenow = datetime.utcnow()
-# print(datenow)
+# # datenow = datetime.utcnow()
+# # print(datenow)
 
-# strdate = datetime.fromisoformat("2021-04-30 06:56:54.329417+00:00")
-# print(strdate)
+# # strdate = datetime.fromisoformat("2021-04-30 06:56:54.329417+00:00")
+# # print(strdate)
 
-# print(testResult.created_at)
-# print(testMd.created_at is testResult.created_at)
+# # print(testResult.created_at)
+# # print(testMd.created_at is testResult.created_at)
 
-# m = Metadata.__fields__
-# fetch_fields = [m.get(c).alias or m.get(c).name for c in m]
+# # m = Metadata.__fields__
+# # fetch_fields = [m.get(c).alias or m.get(c).name for c in m]
 
-# print(fetch_fields)
+# # print(fetch_fields)
 
-# print(os.getcwd())
-
-
-
-import files.tests_import as ti
-
-print(ti.public_func())
-
-def testing_nih():
-    print("func name {}".format(testing_nih.__name__))
-
-testing_nih()
-
-LOG_LEVEL_INFO = "INFO"
-LOG_LEVEL_DEBUG = "DEBUG"
-LOG_LEVEL_ERROR = "ERROR"
-LOG_LEVEL_WARNING = "WARNING    "
-LOG_LEVEL_CRITICAL = "CRITICAL"
-
-print(LOG_LEVEL_INFO)
-
-class TestArr:
-    ta_arr: []
-
-# ta = TestArr()
-# ta.ta_arr.append('testing')
-# ta.ta_arr.append('testing1')
-# ta.str_arr.append("test")
-# print(ta)
+# # print(os.getcwd())
 
 
-def halo_raise() -> (str, BaseException):
-    try:
-        return 'Halo', None
-    except Exception as e:
-        return None, e
-    # return None, BaseException("testing raise for error " + halo_raise.__name__) 
 
-test, err = halo_raise()
-if err != None:
-    print(err)
+# import files.tests_import as ti
 
-print(test)
+# print(ti.public_func())
 
-import model
+# def testing_nih():
+#     print("func name {}".format(testing_nih.__name__))
+
+# testing_nih()
+
+# LOG_LEVEL_INFO = "INFO"
+# LOG_LEVEL_DEBUG = "DEBUG"
+# LOG_LEVEL_ERROR = "ERROR"
+# LOG_LEVEL_WARNING = "WARNING    "
+# LOG_LEVEL_CRITICAL = "CRITICAL"
+
+# print(LOG_LEVEL_INFO)
+
+# class TestArr:
+#     ta_arr: []
+
+# # ta = TestArr()
+# # ta.ta_arr.append('testing')
+# # ta.ta_arr.append('testing1')
+# # ta.str_arr.append("test")
+# # print(ta)
 
 
-# testBook = model.Book()
-# testBook.id = 9
-print(model.Book)
-print(model.Book1)
+# def halo_raise() -> (str, BaseException):
+#     try:
+#         return 'Halo', None
+#     except Exception as e:
+#         return None, e
+#     # return None, BaseException("testing raise for error " + halo_raise.__name__) 
 
-print(model.Book.__name__)
+# test, err = halo_raise()
+# if err != None:
+#     print(err)
 
-def get_tuple(tup: namedtuple) -> (namedtuple, BaseException):
-    if tup != None:
-        return tup, None
+# print(test)
 
-    return None, Exception("Tuple none")
+# import model
 
-def check_book_tuple(tup: namedtuple) -> bool:
-    return tup == model.Book
 
-mod, err = get_tuple(None)
-if err != None:
-    print(err)
+# # testBook = model.Book()
+# # testBook.id = 9
+# print(model.Book)
+# print(model.Book1)
 
-if mod != None:
-    print(mod)
+# print(model.Book.__name__)
 
-test = [namedtuple]
+# def get_tuple(tup: namedtuple) -> (namedtuple, BaseException):
+#     if tup != None:
+#         return tup, None
 
-UserTransaction = namedtuple('user_transactions', [
-    'user_tx_id',
-	'user_id',
-	'paired_wallet',
-	'tx_amount',
-	'tx_direction',
-	'fee_amount',
-	'fee_label',
-	'currency',
-	'paired_currency',
-	'status',
-	'status_info',
-	'tx_scope',
-	'main_tx_id',
-	'optional_message',
-	'created_at',
-	'updated_at',
-	'exchange_rate',
-	'paired_amount',
-	'pairing_rate',
-	'exa_tx_amount',
-	'exa_fee_amount',
-	'exa_paired_amount',
-])
+#     return None, Exception("Tuple none")
 
-TradingOrders = namedtuple('trading_orders', [
-    'order_id',
-	'user_tx_id',
-	'exchange_order_id',
-	'exchange_id',
-	'from_amount',
-	'from_currency',
-	'expected_amount',
-	'to_currency',
-	'actual_fee',
-	'actual_from_amount',
-	'actual_to_amount',
-	'expected_fee',
-	'fee_currency',
-	'order_status',
-	'created_at',
-	'updated_at',
-	'exa_from_amount',
-	'exa_expected_fee',
-	'exa_expected_amount',
-])
+# def check_book_tuple(tup: namedtuple) -> bool:
+#     return tup == model.Book
 
-print(test)
-print(check_book_tuple(model.Book1))
+# mod, err = get_tuple(None)
+# if err != None:
+#     print(err)
 
-print(UserTransaction._fields)
-# column = str(UserTransaction._fields).replace('\', ')
-# testQuery = f"SELECT {str(UserTransaction._fields).replace('\', ')} FROM {UserTransaction.__name__}"
+# if mod != None:
+#     print(mod)
 
-# print(testQuery)
+# test = [namedtuple]
 
-import pytest
+# UserTransaction = namedtuple('user_transactions', [
+#     'user_tx_id',
+# 	'user_id',
+# 	'paired_wallet',
+# 	'tx_amount',
+# 	'tx_direction',
+# 	'fee_amount',
+# 	'fee_label',
+# 	'currency',
+# 	'paired_currency',
+# 	'status',
+# 	'status_info',
+# 	'tx_scope',
+# 	'main_tx_id',
+# 	'optional_message',
+# 	'created_at',
+# 	'updated_at',
+# 	'exchange_rate',
+# 	'paired_amount',
+# 	'pairing_rate',
+# 	'exa_tx_amount',
+# 	'exa_fee_amount',
+# 	'exa_paired_amount',
+# ])
 
-def get_query_str():
-	return 'SELECT 1+1 AS results'
+# TradingOrders = namedtuple('trading_orders', [
+#     'order_id',
+# 	'user_tx_id',
+# 	'exchange_order_id',
+# 	'exchange_id',
+# 	'from_amount',
+# 	'from_currency',
+# 	'expected_amount',
+# 	'to_currency',
+# 	'actual_fee',
+# 	'actual_from_amount',
+# 	'actual_to_amount',
+# 	'expected_fee',
+# 	'fee_currency',
+# 	'order_status',
+# 	'created_at',
+# 	'updated_at',
+# 	'exa_from_amount',
+# 	'exa_expected_fee',
+# 	'exa_expected_amount',
+# ])
 
-@pytest.mark.parametrize('name, query, expected', [
-	('test func 0', get_query_str(), True),
-	('test func 1', get_query_str(), True),
-	('test func 2', get_query_str(), True)
-])
-def test_func(name, query, expected):
-	print(name)
-	print('test - ' + query)
-	print(expected)
+# print(test)
+# print(check_book_tuple(model.Book1))
+
+# print(UserTransaction._fields)
+# # column = str(UserTransaction._fields).replace('\', ')
+# # testQuery = f"SELECT {str(UserTransaction._fields).replace('\', ')} FROM {UserTransaction.__name__}"
+
+# # print(testQuery)
+
+# import pytest
+
+# def get_query_str():
+# 	return 'SELECT 1+1 AS results'
+
+# @pytest.mark.parametrize('name, query, expected', [
+# 	('test func 0', get_query_str(), True),
+# 	('test func 1', get_query_str(), True),
+# 	('test func 2', get_query_str(), True)
+# ])
+# def test_func(name, query, expected):
+# 	print(name)
+# 	print('test - ' + query)
+# 	print(expected)
 	
+import logging
+import sys
+
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+log_format = logging.StreamHandler(sys.stdout)
+log_format.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s'))
+
+logger.addHandler(log_format)
+logger.info("testing debug")
 

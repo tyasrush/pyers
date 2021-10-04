@@ -5,6 +5,8 @@ import json
 async def main():
     redis = aioredis.from_url("redis://localhost:6379")
     async with redis.client() as cl:
+        resp = await cl.get('indodax')
+        print(f"result indodax - {resp}")
         await cl.hset("btcusdt", "bids", """[{ "Price": "42442.00000000", "Qty": "0.09765000"},{"Price": "42439.88000000", "Qty": "0.07450000"},{ "Price": "42438.90000000","Qty": "0.20000000"}]""")
         result = await cl.hget('btcusdt', 'bids')
         json_results = json.loads(result)
