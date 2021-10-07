@@ -205,8 +205,12 @@
 # 	print('test - ' + query)
 # 	print(expected)
 	
+import asyncio
+from asyncio.events import AbstractEventLoop
 import logging
 import sys
+from typing import Awaitable
+import concurrent.futures
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -215,4 +219,22 @@ log_format.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)
 
 logger.addHandler(log_format)
 logger.info("testing debug")
+
+# import aioredis
+# async def testing_redis_nih():
+#     testing_redis = aioredis.from_url("redis://localhost:6379")
+#     async with testing_redis.client() as cl:
+#         await cl.get("testing")
+
+def testing_str():
+    return "testing"
+
+async def testing_str_async(loop: AbstractEventLoop):
+    exect = concurrent.futures.ThreadPoolExecutor(max_workers=3)
+    ret = await loop.run_in_executor(exect, testing_str)
+    print(ret)
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(testing_str_async(loop))
+
 
