@@ -21,4 +21,8 @@ while True:
     logger.info("testing info masuk mana nih")
     logger.error("testing error masuk mana nih")
     logger.debug("testing debug masuk mana nih")
+    test = (0.09876543 // 0.01) * 0.01
+    logger.info(f"test bagi decimal - {test}")
     time.sleep(3.0)
+
+
