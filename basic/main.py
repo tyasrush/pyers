@@ -231,10 +231,11 @@ def testing_str():
 
 async def testing_str_async(loop: AbstractEventLoop):
     exect = concurrent.futures.ThreadPoolExecutor(max_workers=3)
-    ret = await loop.run_in_executor(exect, testing_str)
-    print(ret)
+    return await loop.run_in_executor(exect, testing_str)
+    
 
 loop = asyncio.get_event_loop()
-loop.run_until_complete(testing_str_async(loop))
+result = loop.run_until_complete(testing_str_async(loop))
+print(f"result loop - {result}")
 
 
