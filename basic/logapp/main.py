@@ -62,3 +62,5 @@ loop = asyncio.new_event_loop()
 result = loop.run_until_complete(single_run_sync_with_async(partial(testing_return, 'testing')))
 
 print(f"results - {result}")
+
+print(f"time test - {int((time.time()+1) * 1000)}")
