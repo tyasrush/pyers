@@ -3,6 +3,7 @@ from typing import Any, Dict
 import json
 from typing import Any
 from starlette.responses import JSONResponse
+from datetime import datetime
 
 # tg = pg.TestPG()
 # tg.test_import()
@@ -28,13 +29,17 @@ def test_return(b: bool):
     if b:
         return "market", "test"
     else:
-        raise BaseException({ 'error': True, 'msg': 'testing error' })
+        raise BaseException(500, "testing message")
 try:
     test, test1 = test_return(False)
 except BaseException as e:
     # obj = json.loads(e.args[0])
-    err_dict: Dict = e.args[0]
-    print(f"e {err_dict.get('error')}")
+    code: int = e.args[0]
+    msg: str = e.args[1]
+    print(f"code: {code} msg: {msg}")
+
+import time
+print(time.time())
 
 # print(f"test {test} test1 {test1}")
 
