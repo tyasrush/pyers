@@ -25,3 +25,14 @@ import socket
 host = socket.gethostbyname(socket.gethostname())
 
 print(host)
+
+try:
+    test_if = "test2"
+    if test_if == "test":
+        order = "test"
+    if test_if == "test1":
+        order = "test1"
+
+    raise Exception("test")
+except Exception:
+    print(order)
